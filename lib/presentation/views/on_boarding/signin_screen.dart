@@ -25,9 +25,10 @@ class _SignInScreenState extends State<SignInScreen> {
       routeName: RouteNames.signUp,
     );
   }
-  _loginBtnTapped(){
+
+  _loginBtnTapped() {
     final status = _formGlobalKey.currentState?.validate() ?? false;
-    if(status) {
+    if (status) {
       RoutingHelper.pushToRouteNamed(
         ctx: context,
         routeName: RouteNames.dashboard,
@@ -38,7 +39,18 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldSafeArea(
-      body: _buildBody(),
+      body: Stack(
+        children: [
+          SvgPicture.asset(
+            ImageConstants.loginBgSvg,
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: Dimensions.px175),
+    child: _buildBody(),
+),
+          //
+        ],
+      ),
     );
   }
 

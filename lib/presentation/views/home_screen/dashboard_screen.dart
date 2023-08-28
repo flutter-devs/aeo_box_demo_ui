@@ -1,5 +1,7 @@
 import 'package:aeo_box_demo_ui/core/constants/constant_imports.dart';
 import 'package:aeo_box_demo_ui/core/helper/size_helper.dart';
+import 'package:aeo_box_demo_ui/presentation/views/home_screen/files_landing_screen.dart';
+import 'package:aeo_box_demo_ui/presentation/views/home_screen/home_landing_screen.dart';
 import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -65,7 +67,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                     _currentIndex = 1;
                   });
                 },
-                title: 'File',
+                title: 'Files',
                 asset: _currentIndex == 1
                     ? IconConstants.filesSelectedIcon
                     : IconConstants.filesIcon,
@@ -95,6 +97,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           ],
         ),
       ),
+      backgroundColor: ColorConstants.offWhite,
       body: SafeArea(
         child: _buildBody(),
       ),
@@ -102,48 +105,31 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   }
 
   _buildBody() {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            ColorConstants.loginGradiantClrDark,
-            ColorConstants.white,
-          ],
-          stops: [0.1, 0.7],
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          _buildAppBar(),
-          if (_currentIndex == 0)
-            const Expanded(
-              child: Center(
-                child: CustomText('Home screen'),
-              ),
-            )
-          else if (_currentIndex == 1)
-            const Expanded(
-              child: Center(
-                child: CustomText('Files screen'),
-              ),
-            )
-          else if (_currentIndex == 2)
-            const Expanded(
-              child: Center(
-                child: CustomText('Share screen'),
-              ),
-            )
-          else
-            const Expanded(
-              child: Center(
-                child: CustomText('Setting screen'),
-              ),
-            )
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        _buildAppBar(),
+        if (_currentIndex == 0)
+          const Expanded(
+            child: HomeLandingScreen(),
+          )
+        else if (_currentIndex == 1)
+          const Expanded(
+            child: FilesLandingScreen(),
+          )
+        else if (_currentIndex == 2)
+          const Expanded(
+            child: Center(
+              child: CustomText('Share screen'),
+            ),
+          )
+        else
+          const Expanded(
+            child: Center(
+              child: CustomText('Setting screen'),
+            ),
+          )
+      ],
     );
   }
 

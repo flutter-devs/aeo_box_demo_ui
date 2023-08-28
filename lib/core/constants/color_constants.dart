@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ColorConstants {
-
   static const Color alto = Color(0xffDBDBDB);
   static const Color black = Colors.black;
   static const Color blue = Colors.blue;
@@ -20,9 +19,15 @@ class ColorConstants {
   static const Color valencia = Color(0xffD1473A);
   static const Color white = Colors.white;
   static const Color yellow = Colors.yellow;
-  static const Color primaryBlue =  Color(0xFF2564AF);
+  static const Color primaryBlue = Color(0xFF2564AF);
   static const Color loginBoxClr = Color(0xFFC8D0FF);
   static const Color loginGradiantClrDark = Color(0xFFE2E8FF);
   static const Color loginGradiantClrLight = Color(0xFFEEF2FF);
   static const Color loginBtnClr = Color(0xFF263238);
+  static const Color progressGreen = Color(0xFF25C8BF);
+  static const Color progressRed = Color(0xFFFF6558);
+  static const Color progressYellow = Color(0xFFFCC35B);
+  static const Color progressGrey = Color(0xFF637179);
+  static const Color emptyProgress = Color(0xFF314854);
+static const Color driveBox = Color(0xFF4285F4);
 }

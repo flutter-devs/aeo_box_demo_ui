@@ -109,7 +109,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
                       borderColor: ColorConstants.white,
                       borderRadius: Dimensions.px30,
                       boxShadow: kElevationToShadow[4],
-                    )
+                    ),
                   ],
                 )
         ],
