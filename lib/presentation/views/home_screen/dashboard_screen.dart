@@ -2,6 +2,7 @@ import 'package:aeo_box_demo_ui/core/constants/constant_imports.dart';
 import 'package:aeo_box_demo_ui/core/helper/size_helper.dart';
 import 'package:aeo_box_demo_ui/presentation/views/home_screen/files_landing_screen.dart';
 import 'package:aeo_box_demo_ui/presentation/views/home_screen/home_landing_screen.dart';
+import 'package:aeo_box_demo_ui/presentation/views/home_screen/setting_screen.dart';
 import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -105,41 +106,45 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   }
 
   _buildBody() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        _buildAppBar(),
-        if (_currentIndex == 0)
-          const Expanded(
-            child: HomeLandingScreen(),
+    return _currentIndex != 3
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _buildUserAppBar(),
+              if (_currentIndex == 0)
+                const Expanded(
+                  child: HomeLandingScreen(),
+                )
+              else if (_currentIndex == 1)
+                const Expanded(
+                  child: FilesLandingScreen(),
+                )
+              else if (_currentIndex == 2)
+                const Expanded(
+                  child: Center(
+                    child: CustomText('Share screen'),
+                  ),
+                ),
+            ],
           )
-        else if (_currentIndex == 1)
-          const Expanded(
-            child: FilesLandingScreen(),
-          )
-        else if (_currentIndex == 2)
-          const Expanded(
-            child: Center(
-              child: CustomText('Share screen'),
-            ),
-          )
-        else
-          const Expanded(
-            child: Center(
-              child: CustomText('Setting screen'),
-            ),
-          )
-      ],
-    );
+        : Column(
+            children: [
+              _buildSettingAppBar(),
+              const Expanded(
+                child: SettingScreen()
+              ),
+            ],
+          );
   }
 
-  _buildAppBar() {
+  _buildUserAppBar() {
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: Dimensions.px20,
         horizontal: Dimensions.px20,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
             onTap: () {},
@@ -169,24 +174,63 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             ),
           ),
           SizeHelper.w4(),
+          GestureDetector(
+            onTap: () {},
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(Dimensions.px60 / 2),
+              child: Container(
+                height: Dimensions.px60,
+                width: Dimensions.px60,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: ColorConstants.white,
+                ),
+                child: SvgPicture.asset(
+                  IconConstants.bellIcon,
+                  fit: BoxFit.scaleDown,
+                  height: Dimensions.px20,
+                  width: Dimensions.px20,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildSettingAppBar() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: Dimensions.px20,
+        horizontal: Dimensions.px20,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
           Expanded(
-            child: GestureDetector(
-              onTap: () {},
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(Dimensions.px60 / 2),
-                child: Container(
-                  height: Dimensions.px60,
-                  width: Dimensions.px60,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: ColorConstants.white,
-                  ),
-                  child: SvgPicture.asset(
-                    IconConstants.bellIcon,
-                    fit: BoxFit.scaleDown,
-                    height: Dimensions.px20,
-                    width: Dimensions.px20,
-                  ),
+            child: CustomText(
+              'Settings',
+              style: AppTextStyles.boldText(fontSize: Dimensions.px30),
+            ),
+          ),
+          SizeHelper.w6(),
+          GestureDetector(
+            onTap: () {},
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(Dimensions.px60 / 2),
+              child: Container(
+                height: Dimensions.px60,
+                width: Dimensions.px60,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: ColorConstants.white,
+                ),
+                child: SvgPicture.asset(
+                  IconConstants.bellIcon,
+                  fit: BoxFit.scaleDown,
+                  height: Dimensions.px20,
+                  width: Dimensions.px20,
                 ),
               ),
             ),

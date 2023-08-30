@@ -6,6 +6,7 @@ import '../../../core/helper/size_helper.dart';
 import '../../widgets/custom/custom_folder_view.dart';
 import '../../widgets/custom/custom_scaffold_safe_area.dart';
 import '../../widgets/custom/custom_text.dart';
+import '../../widgets/custom/custom_text_field.dart';
 
 class FilesLandingScreen extends StatefulWidget {
   const FilesLandingScreen({super.key});
@@ -18,29 +19,77 @@ class _FilesLandingScreenState extends State<FilesLandingScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldSafeArea(
-      gradiantEnabled: false,
       body: _buildBody(),
     );
   }
 
   _buildBody() {
     return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // _buildUpperBody(),
-          SizeHelper.h1(),
-          _buildLowerBody(),
-        ],
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              ColorConstants.offWhite,
+              ColorConstants.loginGradiantClrDark,
+            ],
+            stops: [0.1, 0.9],
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildSearchBar(),
+            SizeHelper.h1(),
+            _buildLowerBody(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _buildSearchBar() {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: Dimensions.px25,
+        vertical: Dimensions.px10,
+      ),
+      decoration: const BoxDecoration(
+        color: ColorConstants.white,
+        borderRadius: BorderRadius.all(
+          Radius.circular(30),
+        ),
+      ),
+      child:  Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: Dimensions.px5,
+          vertical: Dimensions.px5,
+        ),
+        child: Row(
+          children: [
+            const CircleAvatar(
+              backgroundColor: ColorConstants.offWhite,
+              child: Icon(Icons.search),
+            ),
+             SizeHelper.w1(),
+             Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText:'Search file, photo or doc',
+                  hintStyle: AppTextStyles.regularText(color: ColorConstants.grey),
+                ),
+              )
+            ),
+          ],
+        ),
       ),
     );
   }
 
   _buildLowerBody() {
     return Container(
-      margin: EdgeInsets.only(
-        top: Dimensions.px100,
-      ),
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
