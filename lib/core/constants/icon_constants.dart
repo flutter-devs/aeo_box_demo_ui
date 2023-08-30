@@ -23,4 +23,9 @@ class IconConstants {
   static const String adobePsIcon = 'assets/icons/icon_adobe_ps_folder_svg.svg';
   static const String adobeXdIcon = 'assets/icons/icon_adobe_xd_folder_svg.svg';
   static const String zipFolderIcon = 'assets/icons/icon_zip_folder_svg.svg';
+  static const String vidFolderIcon = 'assets/icons/icon_vid_folder_svg.svg';
+  static const String imgFolderIcon = 'assets/icons/icon_img_folder_svg.svg';
+  static const String docFolderIcon = 'assets/icons/icon_doc_folder_svg.svg';
+  static const String shareFolderIcon = 'assets/icons/icon_share_folder_svg.svg';
+  static const String folderIcon = 'assets/icons/icon_folder_svg.svg';
 }

@@ -89,7 +89,7 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                           left: Radius.circular(Dimensions.px25),
                         ),
                         color: ColorConstants.emptyProgress),
-                    width: MediaQuery.of(context).size.width,
+                    width: SizeHelper.getDeviceWidth(context),
                     height: Dimensions.px25,
                     child: Row(
                       children: [
@@ -159,7 +159,7 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                       ),
                       CustomPlainButton(
                         onTap: () {},
-                        width: MediaQuery.of(context).size.width / 3.6,
+                        width: SizeHelper.getDeviceWidth(context) / 3.6,
                         height: Dimensions.px50,
                         btnColor: ColorConstants.white,
                         label: 'Upgrade',
@@ -291,7 +291,7 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
 
   _buildLowerBody() {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width:SizeHelper.getDeviceWidth(context),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,

@@ -116,7 +116,7 @@ class _SignInScreenState extends State<SignInScreen> {
       children: [
         CustomPlainButton(
           onTap: _loginBtnTapped,
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.white,
           label: StringConstants.login,
@@ -127,7 +127,7 @@ class _SignInScreenState extends State<SignInScreen> {
         SizeHelper.h1(),
         CustomPlainButton(
           onTap: () {},
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.loginBtnClr,
           label: StringConstants.loginSocial,
@@ -141,7 +141,7 @@ class _SignInScreenState extends State<SignInScreen> {
         SizeHelper.h1(),
         CustomPlainButton(
           onTap: _createNewBtnTapped,
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.transparent,
           label: '${StringConstants.noHaveAccount} ${StringConstants.newLogin}',

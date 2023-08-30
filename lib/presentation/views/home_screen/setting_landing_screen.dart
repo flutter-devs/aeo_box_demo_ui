@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
-class SettingScreen extends StatelessWidget {
-  const SettingScreen({super.key});
+class SettingLandingScreen extends StatelessWidget {
+  const SettingLandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

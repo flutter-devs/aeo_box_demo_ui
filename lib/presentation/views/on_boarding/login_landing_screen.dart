@@ -64,7 +64,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
                     top: Radius.circular(Dimensions.px20),
                   ),
                   color: ColorConstants.loginBoxClr),
-              height: MediaQuery.of(context).size.height / 2.5,
+              height: SizeHelper.getDeviceWidth(context) / 2.5,
               child: ClipRRect(
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(Dimensions.px150),
@@ -90,7 +90,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width / 1.3,
+                      width: SizeHelper.getDeviceWidth(context) / 1.3,
                       child: CustomText(
                         StringConstants.dummyText,
                         style: AppTextStyles.regularText(
@@ -101,7 +101,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
                     SizeHelper.h6(),
                     CustomPlainButton(
                       onTap: _getStartedBtnTapped,
-                      width: MediaQuery.of(context).size.width / 2.8,
+                      width: SizeHelper.getDeviceWidth(context) / 2.8,
                       height: Dimensions.px60,
                       btnColor: ColorConstants.white,
                       label: 'Get Started',
@@ -122,7 +122,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
       children: [
         CustomPlainButton(
           onTap: _loginBtnTapped,
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context),
           height: Dimensions.px60,
           btnColor: ColorConstants.white,
           label: StringConstants.login,
@@ -133,7 +133,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
         SizeHelper.h1(),
         CustomPlainButton(
           onTap: () {},
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.loginBtnClr,
           label: StringConstants.loginSocial,
@@ -147,7 +147,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
         SizeHelper.h1(),
         CustomPlainButton(
           onTap: _createNewBtnTapped,
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.transparent,
           label: StringConstants.newLogin,

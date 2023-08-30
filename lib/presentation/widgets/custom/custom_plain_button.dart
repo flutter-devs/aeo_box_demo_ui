@@ -54,8 +54,8 @@ class CustomPlainButton extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: boxShadow,
           border: Border.all(
-              color: borderColor ?? ColorConstants.blue, width: borderWidth),
-          color: btnColor ?? ColorConstants.blue,
+              color: borderColor ?? ColorConstants.black, width: borderWidth),
+          color: btnColor ?? ColorConstants.black,
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: (icon != null)

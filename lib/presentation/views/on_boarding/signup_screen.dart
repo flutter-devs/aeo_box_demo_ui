@@ -51,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           children: [
             Container(
               margin: const EdgeInsets.only(top: Dimensions.px120),
-              width: MediaQuery.of(context).size.width,
+              width: SizeHelper.getDeviceWidth(context),
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(Dimensions.px20),
@@ -143,7 +143,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       children: [
         CustomPlainButton(
           onTap: () {},
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.white,
           label: StringConstants.signUp,
@@ -154,7 +154,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         SizeHelper.h1(),
         CustomPlainButton(
           onTap: () {},
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.loginBtnClr,
           label: StringConstants.loginSocial,
@@ -168,7 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         SizeHelper.h1(),
         CustomPlainButton(
           onTap: _loginBtnTapped,
-          width: MediaQuery.of(context).size.width / 1.2,
+          width: SizeHelper.getDeviceWidth(context) / 1.2,
           height: Dimensions.px60,
           btnColor: ColorConstants.transparent,
           label:

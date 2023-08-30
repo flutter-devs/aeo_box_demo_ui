@@ -125,7 +125,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             vertical: Dimensions.px16,
             horizontal: Dimensions.px15,
           ),
-          fillColor: widget.isEnabled ? widget.color : ColorConstants.lightGrey,
+          fillColor: widget.isEnabled ? widget.color : ColorConstants.greyOff,
           filled: true,
           enabled: widget.isEnabled,
           counterText: widget.showLimit ? null : '',

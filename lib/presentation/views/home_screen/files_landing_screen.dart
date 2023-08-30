@@ -6,7 +6,6 @@ import '../../../core/helper/size_helper.dart';
 import '../../widgets/custom/custom_folder_view.dart';
 import '../../widgets/custom/custom_scaffold_safe_area.dart';
 import '../../widgets/custom/custom_text.dart';
-import '../../widgets/custom/custom_text_field.dart';
 
 class FilesLandingScreen extends StatefulWidget {
   const FilesLandingScreen({super.key});
@@ -64,7 +63,7 @@ class _FilesLandingScreenState extends State<FilesLandingScreen> {
       child:  Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: Dimensions.px5,
-          vertical: Dimensions.px5,
+          vertical: Dimensions.px0,
         ),
         child: Row(
           children: [
@@ -90,7 +89,7 @@ class _FilesLandingScreenState extends State<FilesLandingScreen> {
 
   _buildLowerBody() {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: SizeHelper.getDeviceWidth(context),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -109,7 +108,7 @@ class _FilesLandingScreenState extends State<FilesLandingScreen> {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: Dimensions.px20,
-          vertical: Dimensions.px10,
+          vertical: Dimensions.px15,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

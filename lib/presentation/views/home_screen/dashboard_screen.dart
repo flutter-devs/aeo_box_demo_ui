@@ -2,7 +2,8 @@ import 'package:aeo_box_demo_ui/core/constants/constant_imports.dart';
 import 'package:aeo_box_demo_ui/core/helper/size_helper.dart';
 import 'package:aeo_box_demo_ui/presentation/views/home_screen/files_landing_screen.dart';
 import 'package:aeo_box_demo_ui/presentation/views/home_screen/home_landing_screen.dart';
-import 'package:aeo_box_demo_ui/presentation/views/home_screen/setting_screen.dart';
+import 'package:aeo_box_demo_ui/presentation/views/home_screen/setting_landing_screen.dart';
+import 'package:aeo_box_demo_ui/presentation/views/home_screen/share_landing_screen.dart';
 import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -121,18 +122,14 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 )
               else if (_currentIndex == 2)
                 const Expanded(
-                  child: Center(
-                    child: CustomText('Share screen'),
-                  ),
+                  child: ShareLandingScreen(),
                 ),
             ],
           )
         : Column(
             children: [
               _buildSettingAppBar(),
-              const Expanded(
-                child: SettingScreen()
-              ),
+              const Expanded(child: SettingLandingScreen()),
             ],
           );
   }
