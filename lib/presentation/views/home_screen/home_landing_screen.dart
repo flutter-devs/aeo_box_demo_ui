@@ -3,6 +3,7 @@ import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_folder_view.d
 import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_scaffold_safe_area.dart';
 import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../../core/constants/constant_imports.dart';
 import '../../widgets/custom/custom_plain_button.dart';
@@ -93,25 +94,106 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                     height: Dimensions.px25,
                     child: Row(
                       children: [
+                        // StepProgressIndicator(
+                        //   totalSteps: 35,
+                        //   currentStep: 35,
+                        //   size: 25,
+                        //   padding: 0,
+                        //   selectedColor: ColorConstants.emptyProgress,
+                        //   unselectedColor: ColorConstants.emptyProgress,
+                        //   roundedEdges: Radius.elliptical(10, 10),
+                        //   selectedGradientColor: LinearGradient(
+                        //     begin: Alignment.topLeft,
+                        //     end: Alignment.bottomRight,
+                        //     colors: [
+                        //       ColorConstants.progressGreen,
+                        //       ColorConstants.progressGreen,
+                        //     ],
+                        //   ),
+                        // ),
+                        // StepProgressIndicator(
+                        //   totalSteps: 35,
+                        //   currentStep: 35,
+                        //   size: 25,
+                        //   padding: 0,
+                        //   selectedColor: ColorConstants.emptyProgress,
+                        //   unselectedColor: ColorConstants.emptyProgress,
+                        //   roundedEdges: Radius.elliptical(10, 10),
+                        //   selectedGradientColor: LinearGradient(
+                        //     begin: Alignment.topLeft,
+                        //     end: Alignment.center,
+                        //     colors: [
+                        //       ColorConstants.progressRed,
+                        //       ColorConstants.progressRed,
+                        //     ],
+                        //   ),
+                        // ),
+                        // StepProgressIndicator(
+                        //   totalSteps: 35,
+                        //   currentStep: 35,
+                        //   size: 25,
+                        //   padding: 0,
+                        //   selectedColor: ColorConstants.emptyProgress,
+                        //   unselectedColor: ColorConstants.emptyProgress,
+                        //   roundedEdges: Radius.elliptical(10, 10),
+                        //   selectedGradientColor: LinearGradient(
+                        //     begin: Alignment.topLeft,
+                        //     end: Alignment.center,
+                        //     colors: [
+                        //       ColorConstants.progressYellow,
+                        //       ColorConstants.progressYellow,
+                        //     ],
+                        //   ),
+                        // ),
+                        // StepProgressIndicator(
+                        //   totalSteps: 35,
+                        //   currentStep: 35,
+                        //   size: 25,
+                        //   padding: 0,
+                        //   selectedColor: ColorConstants.emptyProgress,
+                        //   unselectedColor: ColorConstants.emptyProgress,
+                        //   roundedEdges: Radius.elliptical(10, 10),
+                        //   selectedGradientColor: LinearGradient(
+                        //     begin: Alignment.topLeft,
+                        //     end: Alignment.center,
+                        //     colors: [
+                        //       ColorConstants.progressYellow,
+                        //       ColorConstants.progressYellow,
+                        //     ],
+                        //   ),
+                        // ),
                         _buildColorContainer(
-                          flex: 2,
-                          containerColor: ColorConstants.progressGreen,
-                        ),
+                            flex: 2,
+                            containerColor: ColorConstants.progressGreen,
+                            totalSteps: 35,
+                            currentStep: 35),
                         _buildColorContainer(
-                          flex: 2,
-                          containerColor: ColorConstants.progressRed,
-                        ),
+                            flex: 1,
+                            containerColor: ColorConstants.progressRed,
+                            totalSteps: 28,
+                            currentStep: 28),
                         _buildColorContainer(
-                          flex: 2,
+                          flex: 1,
                           containerColor: ColorConstants.progressYellow,
+                          totalSteps: 22,
+                          currentStep: 22,
                         ),
                         _buildColorContainer(
                           flex: 1,
                           containerColor: ColorConstants.progressGrey,
+                          totalSteps: 20,
+                          currentStep: 20,
+                        ),
+                        _buildColorContainer(
+                          flex: 1,
+                          containerColor: ColorConstants.emptyProgress,
+                          totalSteps: 16,
+                          currentStep: 16,
                         ),
                       ],
                     ),
                   ),
+
                   SizeHelper.h015(),
                   Row(
                     children: [
@@ -246,18 +328,36 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
   _buildColorContainer({
     required Color containerColor,
     required int flex,
+    required int totalSteps,
+    required int currentStep,
   }) {
     return Expanded(
       flex: flex,
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.horizontal(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.horizontal(
             right: Radius.circular(Dimensions.px25),
             left: Radius.circular(Dimensions.px25),
           ),
-          color: containerColor,
         ),
-        height: Dimensions.px25,
+        // height: Dimensions.px25,
+        child: StepProgressIndicator(
+          totalSteps: totalSteps,
+          currentStep: currentStep,
+          padding: 0,
+          size: Dimensions.px25,
+          selectedColor: ColorConstants.emptyProgress,
+          unselectedColor: ColorConstants.emptyProgress,
+          roundedEdges: Radius.lerp(Radius.elliptical(10,10), Radius.elliptical(10,10), 10) ,
+          selectedGradientColor: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.center,
+            colors: [
+              containerColor,
+              containerColor,
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -291,7 +391,7 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
 
   _buildLowerBody() {
     return Container(
-      width:SizeHelper.getDeviceWidth(context),
+      width: SizeHelper.getDeviceWidth(context),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,

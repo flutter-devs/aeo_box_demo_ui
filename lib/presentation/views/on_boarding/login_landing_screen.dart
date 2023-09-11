@@ -64,7 +64,7 @@ class _LoginLandingScreenState extends State<LoginLandingScreen> {
                     top: Radius.circular(Dimensions.px20),
                   ),
                   color: ColorConstants.loginBoxClr),
-              height: SizeHelper.getDeviceWidth(context) / 2.5,
+              height: SizeHelper.getDeviceHeight(context) / 2.5,
               child: ClipRRect(
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(Dimensions.px150),

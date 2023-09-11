@@ -19,7 +19,7 @@ class AppTextStyles {
   }) {
     // return GoogleFonts.roboto(
     return TextStyle(
-      fontFamily: 'Hellix',
+      fontFamily: 'Helix',
       fontSize: fontSize,
       fontWeight: FontWeight.w400,
       color: color,

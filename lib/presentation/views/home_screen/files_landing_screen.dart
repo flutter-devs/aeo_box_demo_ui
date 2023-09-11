@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../../core/constants/constant_imports.dart';
 import '../../../core/helper/size_helper.dart';
@@ -60,7 +61,7 @@ class _FilesLandingScreenState extends State<FilesLandingScreen> {
           Radius.circular(30),
         ),
       ),
-      child:  Padding(
+      child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: Dimensions.px5,
           vertical: Dimensions.px0,
@@ -71,16 +72,16 @@ class _FilesLandingScreenState extends State<FilesLandingScreen> {
               backgroundColor: ColorConstants.offWhite,
               child: Icon(Icons.search),
             ),
-             SizeHelper.w1(),
-             Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText:'Search file, photo or doc',
-                  hintStyle: AppTextStyles.regularText(color: ColorConstants.grey),
-                ),
-              )
-            ),
+            SizeHelper.w1(),
+            Expanded(
+                child: TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Search file, photo or doc',
+                hintStyle:
+                    AppTextStyles.regularText(color: ColorConstants.grey),
+              ),
+            )),
           ],
         ),
       ),
@@ -224,6 +225,51 @@ class _FilesLandingScreenState extends State<FilesLandingScreen> {
                 ),
               ),
               SizeHelper.h1(),
+              StepProgressIndicator(
+                totalSteps: 80,
+                currentStep: 32,
+                size: 8,
+                padding: 0,
+                selectedColor: Colors.yellow,
+                unselectedColor: Colors.cyan,
+                roundedEdges: const Radius.circular(10),
+                selectedGradientColor: const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    ColorConstants.offWhite,
+                    ColorConstants.offWhite,
+                  ],
+                ),
+                unselectedGradientColor: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    ColorConstants.offWhite.withOpacity(0.5),
+                    ColorConstants.offWhite.withOpacity(0.5),
+                  ],
+                ),
+              ),
+              SizeHelper.h05(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    '40 GB',
+                    style: AppTextStyles.regularText(
+                      fontSize: 10,
+                      color: ColorConstants.offWhite,
+                    ),
+                  ),
+                  CustomText(
+                    '100 GB',
+                    style: AppTextStyles.regularText(
+                      fontSize: 10,
+                      color: ColorConstants.offWhite,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

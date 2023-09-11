@@ -32,7 +32,7 @@ class _CustomFolderViewState extends State<CustomFolderView> {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: widget.fillColor,
+              color: widget.fillColor,
               border: Border.all(
                 color: widget.borderEnabled
                     ? ColorConstants.greyOff
@@ -88,15 +88,22 @@ class _CustomFolderViewState extends State<CustomFolderView> {
                 ),
               ),
               PopupMenuButton<int>(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
                 itemBuilder: (context) => [
                   const PopupMenuItem<int>(
-                      value: 0,
-                      child: Row(
-                        children: [
-                          Icon(Icons.share),
-                          Text('Share'),
-                        ],
-                      )),
+                    value: 0,
+                    child: Row(
+                      children: [
+                        Icon(Icons.share),
+                        Text('Share'),
+                      ],
+                    ),
+                  ),
+                  PopupMenuDivider(height: 10,),
                   const PopupMenuItem<int>(
                     value: 1,
                     child: Row(
@@ -106,6 +113,7 @@ class _CustomFolderViewState extends State<CustomFolderView> {
                       ],
                     ),
                   ),
+                  PopupMenuDivider(height: 10,),
                   const PopupMenuItem<int>(
                     value: 2,
                     child: Row(
@@ -115,6 +123,7 @@ class _CustomFolderViewState extends State<CustomFolderView> {
                       ],
                     ),
                   ),
+                  PopupMenuDivider(height: 10,),
                   const PopupMenuItem<int>(
                     value: 3,
                     child: Row(

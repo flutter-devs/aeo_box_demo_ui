@@ -46,55 +46,60 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         shape: const CircularNotchedRectangle(),
         //shape of notch
         notchMargin: 2,
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            _bottomNavBarIcons(
-              onTap: () {
-                setState(() {
-                  _currentIndex = 0;
-                });
-              },
-              title: 'Home',
-              asset: _currentIndex == 0
-                  ? IconConstants.homeSelectedIcon
-                  : IconConstants.homeIcon,
-            ),
-            Expanded(
-              child: _bottomNavBarIcons(
-                onTap: () {
-                  setState(() {
-                    _currentIndex = 1;
-                  });
-                },
-                title: 'Files',
-                asset: _currentIndex == 1
-                    ? IconConstants.filesSelectedIcon
-                    : IconConstants.filesIcon,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(Dimensions.px4),
+              child: Row(
+                //children inside bottom appbar
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  _bottomNavBarIcons(
+                    onTap: () {
+                      setState(() {
+                        _currentIndex = 0;
+                      });
+                    },
+                    title: 'Home',
+                    asset:  IconConstants.homeIcon,
+                  ),
+                  Expanded(
+                    child: _bottomNavBarIcons(
+                      onTap: () {
+                        setState(() {
+                          _currentIndex = 1;
+                        });
+                      },
+                      title: 'Files',
+                      asset: IconConstants.filesIcon,
+                    ),
+                  ),
+                  SizeHelper.w4(),
+                  Expanded(
+                    child: _bottomNavBarIcons(
+                      onTap: () {
+                        setState(() {
+                          _currentIndex = 2;
+                        });
+                      },
+                      title: 'Share',
+                      asset: IconConstants.shareIcon,
+                    ),
+                  ),
+                  _bottomNavBarIcons(
+                    onTap: () {
+                      setState(() {
+                        _currentIndex = 3;
+                      });
+                    },
+                    title: 'Setting',
+                    asset: IconConstants.settingIcon,
+                  ),
+
+                ],
               ),
-            ),
-            SizeHelper.w4(),
-            Expanded(
-              child: _bottomNavBarIcons(
-                onTap: () {
-                  setState(() {
-                    _currentIndex = 2;
-                  });
-                },
-                title: 'Share',
-                asset: IconConstants.shareIcon,
-              ),
-            ),
-            _bottomNavBarIcons(
-              onTap: () {
-                setState(() {
-                  _currentIndex = 3;
-                });
-              },
-              title: 'Setting',
-              asset: IconConstants.settingIcon,
             ),
           ],
         ),
