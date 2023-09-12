@@ -1,6 +1,5 @@
 import 'package:aeo_box_demo_ui/core/helper/size_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_popup_menu_button/menu_direction.dart';
 import 'package:flutter_popup_menu_button/menu_icon.dart';
 import 'package:flutter_popup_menu_button/menu_item.dart';
 import 'package:flutter_popup_menu_button/popup_menu_button.dart';
