@@ -17,9 +17,8 @@ class AppTextStyles {
     bool isUnderline = false,
     double fontSize = Dimensions.px15,
   }) {
-    // return GoogleFonts.roboto(
     return TextStyle(
-      fontFamily: 'Helix',
+      fontFamily: 'Hellix',
       fontSize: fontSize,
       fontWeight: FontWeight.w400,
       color: color,
@@ -34,7 +33,6 @@ class AppTextStyles {
     bool isUnderline = false,
     double fontSize = Dimensions.px15,
   }) {
-    // return GoogleFonts.roboto(
     return TextStyle(
       fontFamily: 'Hellix',
       fontSize: fontSize,
@@ -51,7 +49,6 @@ class AppTextStyles {
     bool isUnderline = false,
     double fontSize = Dimensions.px15,
   }) {
-    // return GoogleFonts.roboto(
     return TextStyle(
       fontFamily: 'Hellix',
       fontSize: fontSize,
@@ -68,7 +65,6 @@ class AppTextStyles {
     bool isUnderline = false,
     double fontSize = Dimensions.px15,
   }) {
-    // return GoogleFonts.roboto(
     return TextStyle(
       fontFamily: 'Hellix',
       fontSize: fontSize,

@@ -7,6 +7,7 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../../core/constants/constant_imports.dart';
 import '../../widgets/custom/custom_plain_button.dart';
+import '../../widgets/percentage_bar.dart';
 
 class HomeLandingScreen extends StatefulWidget {
   const HomeLandingScreen({super.key});
@@ -67,7 +68,8 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                   CustomText(
                     'Storage Usage',
                     style: AppTextStyles.semiBoldText(
-                        color: ColorConstants.progressGrey, fontSize: Dimensions.px10),
+                        color: ColorConstants.progressGrey,
+                        fontSize: Dimensions.px10),
                   ),
                 ],
               ),
@@ -83,9 +85,19 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
               ),
               child: Column(
                 children: [
-                  Image.asset(
-                    ImageConstants.progressPng,
-                    width: SizeHelper.getDeviceWidth(context),
+                  PercentageBar(
+                    color: ColorConstants.progressGrey,
+                    percentage: 80,
+                    title: 'Others',
+                    color2: ColorConstants.progressYellow,
+                    percentage2: 65,
+                    title2: 'Photos',
+                    color3: ColorConstants.progressRed,
+                    percentage3: 50,
+                    title3: 'Videos',
+                    color4: ColorConstants.progressGreen,
+                    percentage4: 30,
+                    title4: 'Document',
                   ),
                   // Container(
                   //   decoration: const BoxDecoration(
@@ -130,28 +142,6 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                   //   ],
                   // ),
                   // ),
-
-                  SizeHelper.h015(),
-                  Row(
-                    children: [
-                      _buildColorText(
-                        color: ColorConstants.progressGreen,
-                        title: 'Document',
-                      ),
-                      _buildColorText(
-                        color: ColorConstants.progressRed,
-                        title: 'Videos',
-                      ),
-                      _buildColorText(
-                        color: ColorConstants.progressYellow,
-                        title: 'Photos',
-                      ),
-                      _buildColorText(
-                        color: ColorConstants.progressGrey,
-                        title: 'Others',
-                      ),
-                    ],
-                  ),
                   SizeHelper.h3(),
                   Row(
                     children: [
@@ -262,75 +252,75 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
     );
   }
 
-  _buildColorContainer({
-    required Color containerColor,
-    required int flex,
-    required int totalSteps,
-    required int currentStep,
-  }) {
-    return Expanded(
-      flex: flex,
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.horizontal(
-            right: Radius.circular(Dimensions.px25),
-            left: Radius.circular(Dimensions.px25),
-          ),
-        ),
-        // height: Dimensions.px25,
-        child: StepProgressIndicator(
-          totalSteps: totalSteps,
-          currentStep: currentStep,
-          padding: 0,
-          size: Dimensions.px25,
-          selectedColor: ColorConstants.emptyProgress,
-          unselectedColor: ColorConstants.emptyProgress,
-          roundedEdges: Radius.lerp(
-              const Radius.elliptical(10, 10), const Radius.elliptical(10, 10), 10),
-          selectedGradientColor: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.center,
-            colors: [
-              containerColor,
-              containerColor,
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  _buildColorText({
-    required Color color,
-    required String title,
-  }) {
-    return Expanded(
-      child: Row(
-        children: [
-          Container(
-            height: 15,
-            width: 15,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.px20),
-                color: color),
-          ),
-          SizeHelper.w05(),
-          CustomText(
-            title,
-            style: AppTextStyles.regularText(
-              color: ColorConstants.grey,
-              fontSize: Dimensions.px10,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // _buildColorContainer({
+  //   required Color containerColor,
+  //   required int flex,
+  //   required int totalSteps,
+  //   required int currentStep,
+  // }) {
+  //   return Expanded(
+  //     flex: flex,
+  //     child: Container(
+  //       decoration: const BoxDecoration(
+  //         borderRadius: BorderRadius.horizontal(
+  //           right: Radius.circular(Dimensions.px25),
+  //           left: Radius.circular(Dimensions.px25),
+  //         ),
+  //       ),
+  //       // height: Dimensions.px25,
+  //       child: StepProgressIndicator(
+  //         totalSteps: totalSteps,
+  //         currentStep: currentStep,
+  //         padding: 0,
+  //         size: Dimensions.px25,
+  //         selectedColor: ColorConstants.emptyProgress,
+  //         unselectedColor: ColorConstants.emptyProgress,
+  //         roundedEdges: Radius.lerp(const Radius.elliptical(10, 10),
+  //             const Radius.elliptical(10, 10), 10),
+  //         selectedGradientColor: LinearGradient(
+  //           begin: Alignment.topLeft,
+  //           end: Alignment.center,
+  //           colors: [
+  //             containerColor,
+  //             containerColor,
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
+  //
+  // _buildColorText({
+  //   required Color color,
+  //   required String title,
+  // }) {
+  //   return Expanded(
+  //     child: Row(
+  //       children: [
+  //         Container(
+  //           height: 15,
+  //           width: 15,
+  //           decoration: BoxDecoration(
+  //               borderRadius: BorderRadius.circular(Dimensions.px20),
+  //               color: color),
+  //         ),
+  //         SizeHelper.w05(),
+  //         CustomText(
+  //           title,
+  //           style: AppTextStyles.regularText(
+  //             color: ColorConstants.grey,
+  //             fontSize: Dimensions.px10,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   _buildLowerBody() {
     return Container(
       width: SizeHelper.getDeviceWidth(context),
-      decoration:  const BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
