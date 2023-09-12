@@ -3,11 +3,7 @@ class IconConstants {
   static const String centerFABIcon =
       'assets/icons/icon_center_bottom_navbar_svg.svg';
   static const String homeIcon = 'assets/icons/icon_home_svg.svg';
-  static const String homeSelectedIcon =
-      'assets/icons/icon_home_selected_svg.svg';
   static const String filesIcon = 'assets/icons/icon_files_svg.svg';
-  static const String filesSelectedIcon =
-      'assets/icons/icon_files_selected_svg.svg';
   static const String shareIcon = 'assets/icons/icon_share_svg.svg';
   static const String bellIcon = 'assets/icons/icon_bell_svg.svg';
   static const String profileIcon = 'assets/icons/icon_profile_svg.svg';
@@ -26,6 +22,8 @@ class IconConstants {
   static const String vidFolderIcon = 'assets/icons/icon_vid_folder_svg.svg';
   static const String imgFolderIcon = 'assets/icons/icon_img_folder_svg.svg';
   static const String docFolderIcon = 'assets/icons/icon_doc_folder_svg.svg';
-  static const String shareFolderIcon = 'assets/icons/icon_share_folder_svg.svg';
+  static const String shareFolderIcon =
+      'assets/icons/icon_share_folder_svg.svg';
   static const String folderIcon = 'assets/icons/icon_folder_svg.svg';
+  static const String sharedPeople = 'assets/icons/shared_people_png.png';
 }

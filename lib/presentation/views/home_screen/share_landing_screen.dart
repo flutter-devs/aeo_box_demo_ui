@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_popup_menu_button/menu_icon.dart';
+import 'package:flutter_popup_menu_button/menu_item.dart';
+import 'package:flutter_popup_menu_button/popup_menu_button.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core/constants/constant_imports.dart';
@@ -154,20 +157,20 @@ class _ShareLandingScreenState extends State<ShareLandingScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _buildSquareContainer(
-                    asset: IconConstants.shareFolderIcon,
-                    title: 'Office files',
-                    showPopup: true,
-                  ),
+                      asset: IconConstants.shareFolderIcon,
+                      title: 'Office files',
+                      showPopup: true,
+                      showShared: true),
                   _buildSquareContainer(
-                    asset: IconConstants.shareFolderIcon,
-                    title: 'Design videos',
-                    showPopup: true,
-                  ),
+                      asset: IconConstants.shareFolderIcon,
+                      title: 'Design videos',
+                      showPopup: true,
+                      showShared: true),
                   _buildSquareContainer(
-                    asset: IconConstants.shareFolderIcon,
-                    title: 'Images',
-                    showPopup: true,
-                  ),
+                      asset: IconConstants.shareFolderIcon,
+                      title: 'Images',
+                      showPopup: true,
+                      showShared: true),
                 ],
               ),
             ),
@@ -193,6 +196,7 @@ class _ShareLandingScreenState extends State<ShareLandingScreen> {
 
   _buildSquareContainer({
     required String asset,
+    bool showShared = false,
     required String title,
     bool showPopup = false,
   }) {
@@ -220,47 +224,127 @@ class _ShareLandingScreenState extends State<ShareLandingScreen> {
                     height: Dimensions.px35,
                   ),
                 ),
+                if (showShared == true)
+                  Positioned(
+                    bottom: -6,
+                    right: 0,
+                    left: 0,
+                    child: Image.asset(IconConstants.sharedPeople),
+                  ),
                 if (showPopup == true)
                   Positioned(
-                    right: -20,
-                    top: -15,
-                    child: PopupMenuButton<int>(
-                      itemBuilder: (context) => [
-                        const PopupMenuItem<int>(
-                            value: 0,
-                            child: Row(
-                              children: [
-                                Icon(Icons.share),
-                                Text('Share'),
-                              ],
-                            )),
-                        const PopupMenuItem<int>(
-                          value: 1,
-                          child: Row(
+                    right: 0,
+                    child: FlutterPopupMenuButton(
+                      shiftX: -50,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                          color: ColorConstants.offWhite),
+                      popupMenuSize: const Size(160, 180),
+                      child: FlutterPopupMenuIcon(
+                        key: GlobalKey(),
+                        child: const Icon(Icons.more_vert),
+                      ),
+                      children: [
+                        FlutterPopupMenuItem(
+                          closeOnItemClick: false,
+                          child: Column(
                             children: [
-                              Icon(Icons.star_border),
-                              Text('Add Favorite'),
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: Dimensions.px10),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.share_outlined,
+                                      size: 18,
+                                    ),
+                                    SizeHelper.w1(),
+                                    CustomText(
+                                      'Share',
+                                      style: AppTextStyles.semiBoldText(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              _customDivider(),
                             ],
                           ),
                         ),
-                        const PopupMenuItem<int>(
-                          value: 2,
-                          child: Row(
+                        FlutterPopupMenuItem(
+                          closeOnItemClick: false,
+                          child: Column(
                             children: [
-                              Icon(Icons.delete),
-                              Text('Trash'),
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: Dimensions.px10),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star_border,
+                                      size: 18,
+                                    ),
+                                    SizeHelper.w1(),
+                                    CustomText(
+                                      'Add Favorite',
+                                      style: AppTextStyles.semiBoldText(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              _customDivider(),
                             ],
                           ),
                         ),
-                        const PopupMenuItem<int>(
-                          value: 3,
-                          child: Row(
+                        FlutterPopupMenuItem(
+                          child: Column(
                             children: [
-                              Icon(Icons.info_outline),
-                              Text('Details'),
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: Dimensions.px10),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.delete_outlined,
+                                      size: 18,
+                                    ),
+                                    SizeHelper.w1(),
+                                    CustomText(
+                                      'Trash',
+                                      style: AppTextStyles.semiBoldText(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              _customDivider(),
                             ],
                           ),
                         ),
+                        FlutterPopupMenuItem(
+                          closeOnItemClick: false,
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: Dimensions.px10),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.info_outline,
+                                      size: 18,
+                                    ),
+                                    SizeHelper.w1(),
+                                    CustomText(
+                                      'Details',
+                                      style: AppTextStyles.semiBoldText(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -279,6 +363,18 @@ class _ShareLandingScreenState extends State<ShareLandingScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  _customDivider() {
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: Dimensions.px10,
+      ),
+      child: Divider(
+        thickness: 0.5,
+        color: ColorConstants.greyOff,
+      ),
     );
   }
 }

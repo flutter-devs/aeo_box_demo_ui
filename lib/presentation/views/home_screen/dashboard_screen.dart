@@ -4,6 +4,7 @@ import 'package:aeo_box_demo_ui/presentation/views/home_screen/files_landing_scr
 import 'package:aeo_box_demo_ui/presentation/views/home_screen/home_landing_screen.dart';
 import 'package:aeo_box_demo_ui/presentation/views/home_screen/setting_landing_screen.dart';
 import 'package:aeo_box_demo_ui/presentation/views/home_screen/share_landing_screen.dart';
+import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_svg_widget.dart';
 import 'package:aeo_box_demo_ui/presentation/widgets/custom/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -63,7 +64,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       });
                     },
                     title: 'Home',
-                    asset:  IconConstants.homeIcon,
+                    asset: IconConstants.homeIcon,
+                    color: _currentIndex == 0
+                        ? ColorConstants.black
+                        : ColorConstants.grey,
+                    textColor: _currentIndex == 0
+                        ? ColorConstants.black
+                        : ColorConstants.grey,
                   ),
                   Expanded(
                     child: _bottomNavBarIcons(
@@ -74,6 +81,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       },
                       title: 'Files',
                       asset: IconConstants.filesIcon,
+                      color: _currentIndex == 1
+                          ? ColorConstants.black
+                          : ColorConstants.grey,
+                      textColor: _currentIndex == 1
+                          ? ColorConstants.black
+                          : ColorConstants.grey,
                     ),
                   ),
                   SizeHelper.w4(),
@@ -86,6 +99,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       },
                       title: 'Share',
                       asset: IconConstants.shareIcon,
+                      color: _currentIndex == 2
+                          ? ColorConstants.black
+                          : ColorConstants.grey,
+                      textColor: _currentIndex == 2
+                          ? ColorConstants.black
+                          : ColorConstants.grey,
                     ),
                   ),
                   _bottomNavBarIcons(
@@ -96,8 +115,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                     },
                     title: 'Setting',
                     asset: IconConstants.settingIcon,
+                    color: _currentIndex == 3
+                        ? ColorConstants.black
+                        : ColorConstants.grey,
+                    textColor: _currentIndex == 3
+                        ? ColorConstants.black
+                        : ColorConstants.grey,
                   ),
-
                 ],
               ),
             ),
@@ -245,19 +269,22 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   _bottomNavBarIcons({
     required String asset,
     required String title,
+    Color textColor = ColorConstants.grey,
+    Color color = ColorConstants.grey,
     VoidCallback? onTap,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Column(
         children: [
-          SvgPicture.asset(
+          CustomSvgWidget(
             asset,
+            color: color,
           ),
           CustomText(
             title,
             style: AppTextStyles.semiBoldText(
-              color: ColorConstants.black,
+              color: textColor,
             ),
           )
         ],

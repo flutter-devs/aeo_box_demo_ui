@@ -67,7 +67,7 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                   CustomText(
                     'Storage Usage',
                     style: AppTextStyles.semiBoldText(
-                        color: ColorConstants.grey, fontSize: Dimensions.px10),
+                        color: ColorConstants.progressGrey, fontSize: Dimensions.px10),
                   ),
                 ],
               ),
@@ -83,116 +83,53 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
               ),
               child: Column(
                 children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.horizontal(
-                          right: Radius.circular(Dimensions.px25),
-                          left: Radius.circular(Dimensions.px25),
-                        ),
-                        color: ColorConstants.emptyProgress),
+                  Image.asset(
+                    ImageConstants.progressPng,
                     width: SizeHelper.getDeviceWidth(context),
-                    height: Dimensions.px25,
-                    child: Row(
-                      children: [
-                        // StepProgressIndicator(
-                        //   totalSteps: 35,
-                        //   currentStep: 35,
-                        //   size: 25,
-                        //   padding: 0,
-                        //   selectedColor: ColorConstants.emptyProgress,
-                        //   unselectedColor: ColorConstants.emptyProgress,
-                        //   roundedEdges: Radius.elliptical(10, 10),
-                        //   selectedGradientColor: LinearGradient(
-                        //     begin: Alignment.topLeft,
-                        //     end: Alignment.bottomRight,
-                        //     colors: [
-                        //       ColorConstants.progressGreen,
-                        //       ColorConstants.progressGreen,
-                        //     ],
-                        //   ),
-                        // ),
-                        // StepProgressIndicator(
-                        //   totalSteps: 35,
-                        //   currentStep: 35,
-                        //   size: 25,
-                        //   padding: 0,
-                        //   selectedColor: ColorConstants.emptyProgress,
-                        //   unselectedColor: ColorConstants.emptyProgress,
-                        //   roundedEdges: Radius.elliptical(10, 10),
-                        //   selectedGradientColor: LinearGradient(
-                        //     begin: Alignment.topLeft,
-                        //     end: Alignment.center,
-                        //     colors: [
-                        //       ColorConstants.progressRed,
-                        //       ColorConstants.progressRed,
-                        //     ],
-                        //   ),
-                        // ),
-                        // StepProgressIndicator(
-                        //   totalSteps: 35,
-                        //   currentStep: 35,
-                        //   size: 25,
-                        //   padding: 0,
-                        //   selectedColor: ColorConstants.emptyProgress,
-                        //   unselectedColor: ColorConstants.emptyProgress,
-                        //   roundedEdges: Radius.elliptical(10, 10),
-                        //   selectedGradientColor: LinearGradient(
-                        //     begin: Alignment.topLeft,
-                        //     end: Alignment.center,
-                        //     colors: [
-                        //       ColorConstants.progressYellow,
-                        //       ColorConstants.progressYellow,
-                        //     ],
-                        //   ),
-                        // ),
-                        // StepProgressIndicator(
-                        //   totalSteps: 35,
-                        //   currentStep: 35,
-                        //   size: 25,
-                        //   padding: 0,
-                        //   selectedColor: ColorConstants.emptyProgress,
-                        //   unselectedColor: ColorConstants.emptyProgress,
-                        //   roundedEdges: Radius.elliptical(10, 10),
-                        //   selectedGradientColor: LinearGradient(
-                        //     begin: Alignment.topLeft,
-                        //     end: Alignment.center,
-                        //     colors: [
-                        //       ColorConstants.progressYellow,
-                        //       ColorConstants.progressYellow,
-                        //     ],
-                        //   ),
-                        // ),
-                        _buildColorContainer(
-                            flex: 2,
-                            containerColor: ColorConstants.progressGreen,
-                            totalSteps: 35,
-                            currentStep: 35),
-                        _buildColorContainer(
-                            flex: 1,
-                            containerColor: ColorConstants.progressRed,
-                            totalSteps: 28,
-                            currentStep: 28),
-                        _buildColorContainer(
-                          flex: 1,
-                          containerColor: ColorConstants.progressYellow,
-                          totalSteps: 22,
-                          currentStep: 22,
-                        ),
-                        _buildColorContainer(
-                          flex: 1,
-                          containerColor: ColorConstants.progressGrey,
-                          totalSteps: 20,
-                          currentStep: 20,
-                        ),
-                        _buildColorContainer(
-                          flex: 1,
-                          containerColor: ColorConstants.emptyProgress,
-                          totalSteps: 16,
-                          currentStep: 16,
-                        ),
-                      ],
-                    ),
                   ),
+                  // Container(
+                  //   decoration: const BoxDecoration(
+                  //       borderRadius: BorderRadius.horizontal(
+                  //         right: Radius.circular(Dimensions.px25),
+                  //         left: Radius.circular(Dimensions.px25),
+                  //       ),
+                  //       color: ColorConstants.transparent),
+                  //   width: SizeHelper.getDeviceWidth(context),
+                  //   height: Dimensions.px25,
+                  //   child:
+                  // Row(
+                  //   children: [
+                  //     _buildColorContainer(
+                  //         flex: 2,
+                  //         containerColor: ColorConstants.progressGreen,
+                  //         totalSteps: 35,
+                  //         currentStep: 35),
+                  //     _buildColorContainer(
+                  //         flex: 1,
+                  //         containerColor: ColorConstants.progressRed,
+                  //         totalSteps: 28,
+                  //         currentStep: 28),
+                  //     _buildColorContainer(
+                  //       flex: 1,
+                  //       containerColor: ColorConstants.progressYellow,
+                  //       totalSteps: 22,
+                  //       currentStep: 22,
+                  //     ),
+                  //     _buildColorContainer(
+                  //       flex: 1,
+                  //       containerColor: ColorConstants.progressGrey,
+                  //       totalSteps: 20,
+                  //       currentStep: 20,
+                  //     ),
+                  //     _buildColorContainer(
+                  //       flex: 1,
+                  //       containerColor: ColorConstants.emptyProgress,
+                  //       totalSteps: 16,
+                  //       currentStep: 16,
+                  //     ),
+                  //   ],
+                  // ),
+                  // ),
 
                   SizeHelper.h015(),
                   Row(
@@ -224,9 +161,9 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                           children: [
                             CustomText(
                               'Total Space Used',
-                              style: AppTextStyles.regularText(
-                                color: ColorConstants.grey,
-                                fontSize: Dimensions.px10,
+                              style: AppTextStyles.semiBoldText(
+                                color: ColorConstants.progressGrey,
+                                fontSize: Dimensions.px12,
                               ),
                             ),
                             CustomText(
@@ -263,7 +200,7 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
             IntrinsicHeight(
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: Dimensions.px40,
+                  horizontal: Dimensions.px30,
                   vertical: Dimensions.px10,
                 ),
                 child: Row(
@@ -275,9 +212,9 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                         children: [
                           CustomText(
                             'Available Space',
-                            style: AppTextStyles.regularText(
-                              color: ColorConstants.grey,
-                              fontSize: Dimensions.px10,
+                            style: AppTextStyles.semiBoldText(
+                              color: ColorConstants.progressGrey,
+                              fontSize: Dimensions.px12,
                             ),
                           ),
                           CustomText(
@@ -300,9 +237,9 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
                         children: [
                           CustomText(
                             'Total Space',
-                            style: AppTextStyles.regularText(
-                              color: ColorConstants.grey,
-                              fontSize: Dimensions.px10,
+                            style: AppTextStyles.semiBoldText(
+                              color: ColorConstants.progressGrey,
+                              fontSize: Dimensions.px12,
                             ),
                           ),
                           CustomText(
@@ -348,7 +285,8 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
           size: Dimensions.px25,
           selectedColor: ColorConstants.emptyProgress,
           unselectedColor: ColorConstants.emptyProgress,
-          roundedEdges: Radius.lerp(Radius.elliptical(10,10), Radius.elliptical(10,10), 10) ,
+          roundedEdges: Radius.lerp(
+              const Radius.elliptical(10, 10), const Radius.elliptical(10, 10), 10),
           selectedGradientColor: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.center,
@@ -392,7 +330,7 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
   _buildLowerBody() {
     return Container(
       width: SizeHelper.getDeviceWidth(context),
-      decoration: const BoxDecoration(
+      decoration:  const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -437,18 +375,21 @@ class _HomeLandingScreenState extends State<HomeLandingScreen> {
             title: 'Shopping Mall App.xd',
             subTitle: '10 MB',
             borderEnabled: true,
+            fillColor: ColorConstants.white,
           ),
           const CustomFolderView(
             asset: IconConstants.adobePsIcon,
             title: 'Edit Photo.psd',
             subTitle: '20 MB',
             borderEnabled: true,
+            fillColor: ColorConstants.white,
           ),
           const CustomFolderView(
             asset: IconConstants.zipFolderIcon,
             title: 'Personal File.zip',
             subTitle: '20 MB',
             borderEnabled: true,
+            fillColor: ColorConstants.white,
           ),
         ],
       ),
