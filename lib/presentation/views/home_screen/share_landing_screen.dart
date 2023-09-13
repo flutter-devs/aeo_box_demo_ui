@@ -180,10 +180,17 @@ class _ShareLandingScreenState extends State<ShareLandingScreen> {
               crossAxisSpacing: 8,
               mainAxisSpacing: 30,
               shrinkWrap: true,
-              children: List.generate(6, (index) {
+              physics: const ClampingScrollPhysics(),
+              children: List.generate(9, (index) {
+                List<String>? titleList = [
+                  'Office files',
+                  'Design videos',
+                  'Images'
+                ];
+                String title = titleList[index % titleList.length];
                 return _buildSquareContainer(
                   asset: IconConstants.folderIcon,
-                  title: 'Office Files',
+                  title: title,
                   showPopup: true,
                 );
               }),

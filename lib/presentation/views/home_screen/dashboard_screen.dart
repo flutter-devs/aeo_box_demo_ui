@@ -277,9 +277,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       onTap: onTap,
       child: Column(
         children: [
-          CustomSvgWidget(
-            asset,
-            color: color,
+          SizedBox(
+            height: Dimensions.px25,
+            width: Dimensions.px25,
+            child: CustomSvgWidget(
+              asset,
+              color: color,
+            ),
           ),
           CustomText(
             title,
